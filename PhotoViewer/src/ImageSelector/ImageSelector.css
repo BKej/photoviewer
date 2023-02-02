@@ -3,17 +3,17 @@
     flex-wrap: wrap;
 }
 
-.individual_image_container{
+#individual_image_container {
     padding: 4px;
-    width: 22%;
-    height: auto; 
-     
+    width: 20%;
+    height: auto;
+
 }
 
-.highlight_true{
-    border: 5px red;
+.highlight_true {
+    background: blue;
 }
 
-.highlight_flase {
-    border: none;
+.highlight_false {
+    background: none;
 }

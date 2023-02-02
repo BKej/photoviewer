@@ -5,11 +5,14 @@ import { PhotoViewer } from "./PhotoViewer/PhotoViewer"
 import { ImageSelector } from './ImageSelector/ImageSelector'
 
 function App() {
+  
+  const [selectedImageURL, setSelectedImageURL] = useState("");
+
   return (
     <div>
       <h1>React Photo Viewer</h1>
-      <PhotoViewer src={"https://picsum.photos/id/600/1600/900.jpg"} />
-      <ImageSelector/>
+      <PhotoViewer src={selectedImageURL}  />
+      <ImageSelector selectedImageURL={selectedImageURL} setSelectedImgURL={setSelectedImageURL} />
     </div>
   );
 }

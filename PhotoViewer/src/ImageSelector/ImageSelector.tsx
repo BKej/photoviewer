@@ -2,38 +2,29 @@ import React from "react";
 import { useState } from "react";
 import './ImageSelector.css';
 
-export function ImageSelector() {
+export function ImageSelector(props: {
+    setSelectedImgURL: React.Dispatch<React.SetStateAction<string>>;
+    selectedImageURL: string}) {
     const brokenImages = [1, 24, 32, 36, 44, 47];
-    const [imageURL, setImageURL] = useState("");
-    const [highlightFlag, setHighlight] = useState(false);
-
+    
     function getImageUrls() {
         const urls = [];
-        
-        const getImageURL = (e) => {
-            setImageURL(e.target.src);
-        }
-
-        function handleClick() {
-            alert("helloo")
-            setHighlight(true)
-        }
-
         for (let i = 0; i < 50; i++) {
             if (!brokenImages.includes(i)) {
                 const imageNumberString = i.toString().padStart(2, '0');
-                urls.push(<img src={`https://picsum.photos/id/6${imageNumberString}/1600/900.jpg`} className={{ highlightFlag } ? "highlight_true" : "highlight_flase"} onClick={handleClick} />)
+                const imageUrl = `https://picsum.photos/id/6${imageNumberString}/1600/900.jpg`;
+                urls.push(<img id= "individual_image_container" src={imageUrl} className={imageUrl === props.selectedImageURL ? "highlight_true" : "highlight_false"} onClick={() => props.setSelectedImgURL(imageUrl)} />)
             }
         }
 
         return urls;
     }
     
-    const image = getImageUrls()
+    const images = getImageUrls()
     return (
         <div className="flex_image_container" >
-            <p>Clicked Image URL: {imageURL}</p>
-            <p>{image}</p>       
+            <p>{images}</p> 
+            
     </div>)
 
 }
