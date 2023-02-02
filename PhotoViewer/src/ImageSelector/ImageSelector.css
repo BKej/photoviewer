@@ -1,0 +1,19 @@
+.flex_image_container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.individual_image_container{
+    padding: 4px;
+    width: 22%;
+    height: auto; 
+     
+}
+
+.highlight_true{
+    border: 5px red;
+}
+
+.highlight_flase {
+    border: none;
+}
