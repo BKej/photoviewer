@@ -6,11 +6,12 @@ export function ImageSelector(props: {
     setSelectedImgURL: React.Dispatch<React.SetStateAction<string>>;
     selectedImageURL: string
 }) {
-    const imagesURL = getImageUrls()
-    const images = []
+    
+    const imagesURL = getImageUrls();
+    const images = [];
 
     for (let i = 0; i < imagesURL.length; i++) {
-        images.push(<img id="individual_image_container" src={'imagesURL[i]'} className={'imagesURL[i]' === props.selectedImageURL ? "highlight_true" : "highlight_false"} onClick={() => props.setSelectedImgURL('imagesURL[i]')} />)
+        images.push(<img id="individual_image_container" src={imagesURL[i].imageUrl} className={imagesURL[i].imageUrl === props.selectedImageURL ? "highlight_true" : "highlight_false"} onClick={() => props.setSelectedImgURL(imagesURL[i].imageUrl)} />)
     
     }
    
@@ -18,7 +19,7 @@ export function ImageSelector(props: {
         <div className="flex_image_container" >
             <p>{images}</p> 
             
-    </div>)
+</div>)
 
 }
 
